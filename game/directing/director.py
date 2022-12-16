@@ -8,7 +8,6 @@ class Director():
         self._board = Board()
         self._is_playing, self.complete = True, False
         self._terminal_service = TerminalService()
-        # self._players = Player()
         self.turn = 0
         self.prev_turn = -1
         
@@ -40,8 +39,7 @@ class Director():
 
     
     def _get_inputs(self):
-        # self._board.check_turn()
-        # self._board.make_move()
+
         if self.prev_turn == self.turn:
             print("Invalid spot selected, please pick another.")
         
@@ -62,14 +60,7 @@ class Director():
                     # Valid input, update the board
                     self.turn += 1
                     self._board._squares[int(choice)] = self._board.check_turn(self.turn)
-            
-            
-            # player = self._board._squares
-            # move = self._board.check_turn() 
-            # player[int(choice)] = move(turn)
-            
-            # self._board._squares[int(choice)] = choice
-            # print(self._board.tic_board())
+
         
         
 
