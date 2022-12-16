@@ -27,18 +27,17 @@ class Board():
     
     def check_turn(self):        
         if self.turn % 2 == 0: return 'O'
-        
         else:
             return 'X'
 
-    def make_move(self):
-        turn = 0
-        choice = self._terminal_service.read_text(f"Choose a square: ")
-        turn += 1
-        self._squares[int(choice)] = self.check_turn(turn)
+    # def make_move(self):
+    #     turn = 0
+    #     choice = self._terminal_service.read_text(f"Choose a square: ")
+    #     turn += 1
+    #     self._squares[int(choice)] = self.check_turn(turn)
         
-        if choice == 'q':
-            self._is_playing = False
+    #     if choice == 'q':
+    #         self._is_playing = False
              
         
     
