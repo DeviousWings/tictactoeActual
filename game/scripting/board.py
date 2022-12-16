@@ -1,4 +1,4 @@
-# from game.casting.player import Player
+# from game.directing.director import Director
 from game.scripting.terminal_service import TerminalService
 
 
@@ -9,6 +9,7 @@ class Board():
          6 : '6', 7 : '7',  8 : '8', 9 : '9'}
         # self._players = Player()
         self._terminal_service = TerminalService()
+        # self.direct = Director()
         self.turn = 0
         
         
@@ -24,8 +25,8 @@ class Board():
         
 
     
-    def check_turn(self):
-        if self.turn % 2 == 0: 
+    def check_turn(self, turn):
+        if turn % 2 == 0: 
             return 'O'
         else:
             return 'X'
