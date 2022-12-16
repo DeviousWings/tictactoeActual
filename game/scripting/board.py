@@ -10,7 +10,6 @@ class Board():
         # self._players = Player()
         self._terminal_service = TerminalService()
         # self.direct = Director()
-        self.turn = 0
         
         
     def tic_board(self):
