@@ -10,7 +10,7 @@ class Director():
         self._is_playing = True
         self._terminal_service = TerminalService()
         # self._players = Player()
-        # self.turn = 0
+        self.turn = 0
         
         
         
@@ -34,16 +34,15 @@ class Director():
         # print(self._board.tic_board())
         
     
-    def _get_inputs(self, Board()):
+    def _get_inputs(self):
         # self._board.check_turn()
         # self._board.make_move()
         # Reset the screen
-        turn = 0
         while self._is_playing:
             # self._board.tic_board()
-            
             # Gets input from Player
             choice = self._terminal_service.read_text(f"Choose a square: ")
+            self._board._squares[choice] = " "
 
             if choice == 'q':
                 self._is_playing = False
@@ -52,8 +51,8 @@ class Director():
                 # Check if the spot has already been taken
                 if not self._board._squares[int(choice)] in {"X", "O"}:
                     # Valid input, update the board
-                    turn += 1
-                    self._board._squares[int(choice)] = self._board.check_turn(turn)
+                    self.turn += 1
+                    self._board._squares[int(choice)] = Board.check_turn(self.turn)
             
             
             # player = self._board._squares
