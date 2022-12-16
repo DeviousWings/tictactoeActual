@@ -33,8 +33,8 @@ class Director():
         # print("Second Draw: ")
         # print(self._board.tic_board())
         
-        
-    def _get_inputs(self):
+    
+    def _get_inputs(self, Board()):
         # self._board.check_turn()
         # self._board.make_move()
         # Reset the screen
