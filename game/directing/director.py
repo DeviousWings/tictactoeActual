@@ -47,8 +47,11 @@ class Director():
 
             if choice == 'q':
                 self._is_playing = False
+                #  Check if the player gave a number from 1-9
             elif str.isdigit(choice) and int(choice) in self._board._squares:
+                # Check if the spot has already been taken
                 if not self._board._squares[int(choice)] in {"X", "O"}:
+                    # Valid input, update the board
                     turn += 1
                     self._board._squares[int(choice)] = self._board.check_turn(turn)
             
