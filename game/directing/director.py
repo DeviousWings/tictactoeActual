@@ -10,6 +10,7 @@ class Director():
         self._terminal_service = TerminalService()
         # self._players = Player()
         self.turn = 0
+        self.prev_turn = -1
         
         
         
@@ -22,11 +23,13 @@ class Director():
             self._get_inputs()
             
     def _draw_board(self):
-        # Prints the board w/ numbers
+        # Reset the screen
         os.system('cls' if os.name == 'nt' else 'clear')
         
+        # Prints the board w/ numbers
         self._board.tic_board()
         
+        # Force changes square
         # self._board._squares[1] = "X"
         # print("Second Draw: ")
         # print(self._board.tic_board())
@@ -37,7 +40,11 @@ class Director():
     def _get_inputs(self):
         # self._board.check_turn()
         # self._board.make_move()
-        # Reset the screen
+        if self.prev_turn == self.turn:
+            print("Invalid spot selected, please pick another.")
+        
+        self.prev_turn = self.turn
+        
         if self._is_playing:
             # self._board.tic_board()
             # Gets input from Player
