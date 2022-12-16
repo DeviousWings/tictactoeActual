@@ -1,5 +1,4 @@
 # from game.casting.player import Player
-from game.directing.director import Director
 from game.scripting.terminal_service import TerminalService
 
 
@@ -9,8 +8,8 @@ class Board():
         self._squares = {1 : '1', 2 : '2', 3: '3', 4 : '4', 5 : '5', 
          6 : '6', 7 : '7',  8 : '8', 9 : '9'}
         # self._players = Player()
-        self.director = Director()
         self._terminal_service = TerminalService()
+        self.turn = 0
         
         
     def tic_board(self):
@@ -25,8 +24,8 @@ class Board():
         
 
     
-    def check_turn(self):
-        if self.director.turn % 2 == 0: return 'O'
+    def check_turn(turn):
+        if turn % 2 == 0: return 'O'
         else:
             return 'X'
 

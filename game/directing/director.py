@@ -21,7 +21,6 @@ class Director():
         while self._is_playing == True:
             self._draw_board()
             self._get_inputs()
-            self._do_updates()
             
     def _draw_board(self):
         # Prints the board w/ numbers
@@ -42,7 +41,6 @@ class Director():
             # self._board.tic_board()
             # Gets input from Player
             choice = self._terminal_service.read_text(f"Choose a square: ")
-            self._board._squares[choice] = " "
 
             if choice == 'q':
                 self._is_playing = False
@@ -52,7 +50,7 @@ class Director():
                 if not self._board._squares[int(choice)] in {"X", "O"}:
                     # Valid input, update the board
                     self.turn += 1
-                    self._board._squares[int(choice)] = Board.check_turn(self.turn)
+                    self._board._squares[int(choice)] = int(choice)
             
             
             # player = self._board._squares
@@ -65,11 +63,5 @@ class Director():
         
 
         # pass
-        
-        
-
-        
-    def _do_updates(self):
-        pass
         
             
