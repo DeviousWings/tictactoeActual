@@ -24,8 +24,9 @@ class Board():
         
 
     
-    def check_turn(turn):
-        if turn % 2 == 0: return 'O'
+    def check_turn(self):
+        if self.turn % 2 == 0: 
+            return 'O'
         else:
             return 'X'
 
