@@ -30,18 +30,25 @@ class Board():
         else:
             return 'X'
 
-    # def make_move(self):
-    #     turn = 0
-    #     choice = self._terminal_service.read_text(f"Choose a square: ")
-    #     turn += 1
-    #     self._squares[int(choice)] = self.check_turn(turn)
-        
-    #     if choice == 'q':
-    #         self._is_playing = False
-             
+    def check_for_win(self):
+        if   (self._squares[1] == self._squares[2] == self._squares[3]) \
+            or (self._squares[4] == self._squares[5] == self._squares[6]) \
+            or (self._squares[7] == self._squares[8] == self._squares[9]):
+            return True
+        # Handle Vertical Cases
+        elif   (self._squares[1] == self._squares[4] == self._squares[7]) \
+            or (self._squares[2] == self._squares[5] == self._squares[8]) \
+            or (self._squares[3] == self._squares[6] == self._squares[9]):
+            return True
+        # Diagonal Cases
+        elif (self._squares[1] == self._squares[5] == self._squares[9]) \
+            or (self._squares[3] == self._squares[5] == self._squares[7]):
+            return True
+            
+        else: return False
         
     
-        
+    
     
 
 

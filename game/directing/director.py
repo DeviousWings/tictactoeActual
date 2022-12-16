@@ -6,11 +6,12 @@ import os
 class Director():
     def __init__(self):
         self._board = Board()
-        self._is_playing = True
+        self._is_playing, self.complete = True, False
         self._terminal_service = TerminalService()
         # self._players = Player()
         self.turn = 0
         self.prev_turn = -1
+        
         
         
         
@@ -21,6 +22,7 @@ class Director():
         while self._is_playing == True:
             self._draw_board()
             self._get_inputs()
+            self._get_winner()
             
     def _draw_board(self):
         # Reset the screen
@@ -71,5 +73,15 @@ class Director():
         
         
 
-        # pass
+    def _get_winner(self):
+        if self._board.check_for_win():
+            self._is_playing, self.complete = False, True
+        if self.turn > 8: self._is_playing = False
+        os.system('cls' if os.name == 'nt' else 'clear')
+        self._board.tic_board()
+        if self.complete:
+            if self._board.check_turn(self.turn) == 'X': print("Player 1 Wins!")
+            else: print("Player 2 Wins!")
+        print("Thanks for playing!")
+        
     
