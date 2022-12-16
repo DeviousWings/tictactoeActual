@@ -39,7 +39,7 @@ class Director():
         # self._board.make_move()
         # Reset the screen
         turn = 0
-        while self._is_playing:
+        if self._is_playing:
             # self._board.tic_board()
             # Gets input from Player
             choice = self._terminal_service.read_text("Player " + str((turn % 2) +1 ) + "'s turn: Pick your spot or press q to quit: ")
